@@ -1,29 +1,44 @@
+# Bank Management System
 
-
-# Bank Account Management System with c++
-
-This project is a simple bank account management system that allows users to perform basic operations like opening an account, depositing money, withdrawing money, and displaying account details.
+A simple and interactive bank management system implemented in C++.
 
 ## Features
 
-- Open a new bank account
-- Deposit money into an existing account
-- Withdraw money from an existing account
-- Display account details, including name, address, account type, and balance
+### 1. **Add Customer**
+- **Customer ID**: 
+  - Must be an integer.
+  - Unique for every customer. If an ID is provided that's already in use, the system will suggest an available ID.
+  
+- **Full Name**:
+  - Should only contain letters.
+  - Must start with a capital letter.
+  - After any space, the next character should be capitalized.
 
-## Usage
+- **Date of Birth**:
+  - Format: `YYYY.MM.DD`.
+  - The year should be four numerical digits, followed by a dot, then two numerical digits for the month, another dot, and finally two numerical digits for the day.
 
-1. Compile the project using a C++ compiler (e.g., `g++ -o main main.cpp bank_account.cpp`)
-2. Run the compiled executable (e.g., `./main`)
-3. Follow the on-screen prompts to perform various actions
+- **Phone Number**:
+  - Should start with a "+".
+  - All subsequent characters should be numerical digits.
 
-## File Structure
+- **Email**:
+  - Must contain an "@" symbol.
 
-- `bank_account.h`: Header file containing the `BankAccount` class declaration
-- `bank_account.cpp`: Implementation file containing the `BankAccount` class methods
-- `main.cpp`: Main program file that interacts with the user and handles user input
+### 2. **Search Customer**
+- Search for a customer's details using their unique ID.
 
-## Dependencies
+### 3. **Deposit Money**
+- Deposit a specified amount to a customer's account using their unique ID.
 
-- C++11 or later
-- Standard C++ libraries (e.g., `<iostream>`, `<string>`)
+### 4. **Withdraw Money**
+- Withdraw a specified amount from a customer's account using their unique ID.
+- Cannot withdraw more than the current balance.
+
+### 5. **Delete Customer**
+- Remove a customer from the system using their unique ID.
+
+## Constraints
+- Proper input validation is implemented to ensure data integrity.
+- Informative prompts guide the user in case of invalid inputs.
+
