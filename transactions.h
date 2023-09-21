@@ -56,9 +56,10 @@ public:
         }
     }
 
-    const std::vector<Customer>& getCustomers() const {
-        return customers;
-    }
+
+    std::vector<Customer>& getCustomers() {
+    return customers;
+}
 
 };
 

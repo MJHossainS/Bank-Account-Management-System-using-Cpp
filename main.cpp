@@ -1,11 +1,15 @@
 #include <iostream>
+#include <algorithm>
+
 #include "create_customer.h"
 #include "search.h"
 #include "delete_customer.h"
 #include "transactions.h"
 
 BankTransactions bank;
-CustomerDeletion customerDeletion;  // Assuming BankTransactions and CustomerDeletion are using the same vector
+CustomerDeletion customerDeletion(bank.getCustomers());
+
+
 
 void displayMenu() {
     std::cout << "\n--- Bank Management System ---\n";
@@ -90,6 +94,7 @@ bool isValidDOBFormat(const std::string& dob) {
     }
     return true;
 }
+
 
 
 void addCustomer() {
@@ -194,8 +199,14 @@ int main() {
             case 5:  // Delete Customer
                 std::cout << "Enter customer ID to delete: ";
                 std::cin >> id;
-                customerDeletion.deleteCustomerById(id);
+                std::cin.ignore();  // Clear any newline left in the buffer
+                if (customerDeletion.deleteCustomerById(id)) {
+                    std::cout << "Customer with ID " << id << " successfully deleted.\n";
+                } else {
+                    std::cout << "No customer found with ID " << id << ".\n";
+                }
                 break;
+
 
             case 6:  // Exit
                 std::cout << "Exiting the system.\n";
